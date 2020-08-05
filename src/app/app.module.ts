@@ -15,6 +15,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
 import {SearchService} from './services/search.service';
+import { SortByDatePipe } from './pipes/sort-by-date/sort-by-date.pipe';
 
 @NgModule({
             declarations: [
@@ -26,7 +27,8 @@ import {SearchService} from './services/search.service';
               SortBarComponent,
               LoginInfoBlockComponent,
               LogoComponent,
-              SettingsButtonComponent
+              SettingsButtonComponent,
+              SortByDatePipe
             ],
             imports: [
               BrowserModule,
