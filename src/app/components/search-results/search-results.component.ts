@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import data from '../../../../example.js';
+import {SearchResponse} from '../../models/search-response.model';
 
 @Component({
              selector: 'app-search-results',
@@ -7,7 +8,7 @@ import data from '../../../../example.js';
              styleUrls: ['./search-results.component.scss']
            })
 export class SearchResultsComponent {
-  searchResults = data;
+  searchResults?: SearchResponse;
 
   constructor() {
   }

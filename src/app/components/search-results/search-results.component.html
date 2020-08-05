@@ -1,6 +1,6 @@
 <div class="container">
   <mat-grid-list cols="4" gutterSize="24px" rowHeight="400px">
-    <mat-grid-tile *ngFor="let searchItem of searchResults.items">
+    <mat-grid-tile *ngFor="let searchItem of searchResults?.items">
       <app-search-item [searchItem]="searchItem"></app-search-item>
     </mat-grid-tile>
   </mat-grid-list>
