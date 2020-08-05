@@ -6,13 +6,17 @@
     margin:0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     position:relative;
 
     app-login-info-block{
       position:absolute;
       top:0;
       right:0;
+    }
+
+    app-logo{
+      align-self: center;
     }
   }
 }

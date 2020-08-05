@@ -14,6 +14,7 @@ import {MaterialModule} from './material-module';
 import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
+import {SearchService} from './services/search.service';
 
 @NgModule({
             declarations: [
@@ -34,7 +35,7 @@ import { SettingsButtonComponent } from './components/settings-button/settings-b
               HttpClientModule,
               MaterialModule
             ],
-            providers: [],
+            providers: [SearchService],
             bootstrap: [AppComponent]
           })
 export class AppModule {
