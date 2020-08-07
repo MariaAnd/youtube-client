@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [appHighlightPublicationDate]="searchItem.snippet.publishedAt">
   <img src="{{searchItem.snippet.thumbnails.default.url}}" alt="Video thumbnail">
   <mat-card-content>
     <div class="statistics-container">
