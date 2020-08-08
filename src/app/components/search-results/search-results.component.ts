@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchResponse} from '../../models/search-response.model';
-import {SearchService} from '../../services/search.service';
+import {SharedService} from '../../services/shared-service/shared.service';
 
 @Component({
              selector: 'app-search-results',

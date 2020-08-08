@@ -7,12 +7,12 @@ import {SearchService} from '../../services/search.service';
              styleUrls: ['./header.component.scss']
            })
 export class HeaderComponent implements OnInit {
-  private isSortBarVisible: boolean = false;
+  public isSortBarVisible: boolean = false;
 
   constructor(private _searchService: SearchService) {
   }
 
-  private toggleSortBarVisibility(): void {
+  public toggleSortBarVisibility(): void {
     this.isSortBarVisible = !this.isSortBarVisible;
   }
 

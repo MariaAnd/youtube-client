@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { SearchService } from './search.service';
 
-describe('SearchService', () => {
+describe('SharedService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

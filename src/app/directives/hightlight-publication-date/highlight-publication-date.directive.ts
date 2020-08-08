@@ -18,7 +18,6 @@ export class HighlightPublicationDateDirective implements OnInit {
   }
 
   public getColorByDate(date: Date): void {
-    const currentDate: Date = new Date();
     const publishedDate: Date = new Date(date);
 
     function getOneMonthBeforeNow(): Date {
@@ -46,7 +45,7 @@ export class HighlightPublicationDateDirective implements OnInit {
       case publishedDate > getSixMonthsBeforeNow():
         this.element.nativeElement.style.borderBottom = '5px solid red';
         break;
-      case publishedDate <= getSixMonthsBeforeNow():
+      default:
         this.element.nativeElement.style.borderBottom = '5px solid yellow';
         break;
     }

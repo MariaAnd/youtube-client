@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-login-info-block',
-  templateUrl: './login-info-block.component.html',
-  styleUrls: ['./login-info-block.component.scss']
-})
-export class LoginInfoBlockComponent implements OnInit {
+             selector: 'app-login-info-block',
+             templateUrl: './login-info-block.component.html',
+             styleUrls: ['./login-info-block.component.scss']
+           })
+export class LoginInfoBlockComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
 }

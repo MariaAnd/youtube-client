@@ -7,7 +7,7 @@ import {SearchItem} from '../../models/search-item.model';
              styleUrls: ['./search-item.component.scss']
            })
 export class SearchItemComponent implements OnInit {
-  @Input() searchItem: SearchItem;
+  @Input() public searchItem: SearchItem;
 
   constructor() {
   }
