@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {SearchResponse} from '../../models/search-response.model';
+import {SearchResponse} from '../../../youtube/models/search-response.model';
 import data from './data.js';
 import {BehaviorSubject, Observable} from 'rxjs';
 
