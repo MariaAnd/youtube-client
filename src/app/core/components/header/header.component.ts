@@ -9,7 +9,7 @@ import {SharedService} from '../../services/shared-service/shared.service';
 export class HeaderComponent implements OnInit {
   public isSortBarVisible: boolean = false;
 
-  constructor(private _searchService: SearchService) {
+  constructor(private _sharedService: SharedService) {
   }
 
   public toggleSortBarVisibility(): void {
@@ -17,7 +17,11 @@ export class HeaderComponent implements OnInit {
   }
 
   public onSearchSubmit(): void {
-    this._searchService.getResponse();
+    this._sharedService.getResponse();
+  }
+
+  public onSortSubmit(sortParam: string): void {
+    this._sharedService.applySort(sortParam);
   }
 
   public ngOnInit(): void {

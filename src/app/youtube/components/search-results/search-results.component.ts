@@ -8,13 +8,19 @@ import {SharedService} from '../../../core/services/shared-service/shared.servic
              styleUrls: ['./search-results.component.scss']
            })
 export class SearchResultsComponent implements OnInit {
-  private searchResults?: SearchResponse;
+  public searchResults?: SearchResponse;
+  public filterParam?: string;
 
-  constructor(private _searchService: SearchService) {
+  constructor(private _sharedService: SharedService) {
   }
 
   public ngOnInit(): void {
-    this._searchService.currentResponse.subscribe(response => this.searchResults = response)
+    this._sharedService.currentResponse.subscribe(response => {
+      this.searchResults = response;
+    });
+    this._sharedService.currentSortParameter.subscribe(param => {
+      this.filterParam = param;
+    });
   }
 
 }

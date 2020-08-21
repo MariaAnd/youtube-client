@@ -6,7 +6,7 @@
     <app-login-info-block></app-login-info-block>
   </div>
   <div class="container">
-    <app-sort-bar *ngIf="isSortBarVisible"></app-sort-bar>
+    <app-sort-bar (sortSubmitted)="onSortSubmit($event)" *ngIf="isSortBarVisible"></app-sort-bar>
   </div>
 </div>
 

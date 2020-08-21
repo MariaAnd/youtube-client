@@ -20,7 +20,6 @@ import {AuthModule} from './auth/auth.module';
               YoutubeModule,
               AuthModule
             ],
-            providers: [SearchService],
             bootstrap: [AppComponent]
           })
 export class AppModule {
