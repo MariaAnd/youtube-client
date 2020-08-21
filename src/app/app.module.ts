@@ -5,8 +5,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
-import {YoutubeModule} from './youtube/youtube.module';
-import {AuthModule} from './auth/auth.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
             declarations: [
@@ -14,11 +14,11 @@ import {AuthModule} from './auth/auth.module';
             ],
             imports: [
               BrowserModule,
+              BrowserAnimationsModule,
               AppRoutingModule,
               HttpClientModule,
               CoreModule,
-              YoutubeModule,
-              AuthModule
+              SharedModule.forRoot()
             ],
             bootstrap: [AppComponent]
           })

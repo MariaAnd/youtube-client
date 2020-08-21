@@ -19,6 +19,7 @@ export class SharedService {
 
   public getResponse(): void {
     this.response.next(data);
+    console.log(this.currentResponse);
   }
 
   public applySort(parameter: string): void {

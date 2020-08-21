@@ -20,9 +20,10 @@ export class LoginFormComponent implements OnInit {
 
   public login(): void {
     if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(['user']);
+      localStorage.setItem('token', 'fake_token');
+      this.router.navigate(['youtube']);
     } else {
-      this.authFailed = true
+      this.authFailed = true;
     }
   }
 }
