@@ -13,6 +13,7 @@ import {DetailedInformationPageComponent}
 import {SearchItemDetailedInfoComponent}
   from './components/search-item-detailed-info/search-item-detailed-info.component';
 import {YoutubeRoutingModule} from './youtube-routing.module';
+import {YoutubeService} from './services/youtube-service/youtube.service';
 
 @NgModule({
             declarations: [
@@ -24,11 +25,12 @@ import {YoutubeRoutingModule} from './youtube-routing.module';
               DetailedInformationPageComponent,
               SearchItemDetailedInfoComponent
             ],
+            providers: [YoutubeService],
             imports: [
               CommonModule,
               SharedModule,
               FlexLayoutModule,
-              YoutubeRoutingModule,
+              YoutubeRoutingModule
             ]
           })
 export class YoutubeModule {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchResponse} from '../../models/search-response.model';
-import {SharedService} from '../../../shared/services/shared-service/shared.service';
+import {SharedService} from '../../../core/services/shared-service/shared.service';
+import {YoutubeService} from '../../services/youtube-service/youtube.service';
 
 @Component({
              selector: 'app-search-results',
@@ -11,12 +12,15 @@ export class SearchResultsComponent implements OnInit {
   public searchResults?: SearchResponse;
   public filterParam?: string;
 
-  constructor(private _sharedService: SharedService) {
+  constructor(private _sharedService: SharedService,
+              private _youtubeService: YoutubeService) {
   }
 
   public ngOnInit(): void {
-    this._sharedService.currentResponse.subscribe(response => {
-      this.searchResults = response;
+    this._sharedService.currentSearchTerm.subscribe(searchTerm => {
+      if (searchTerm) {
+        this.searchResults = this._youtubeService.getSearchResults(searchTerm);
+      }
     });
     this._sharedService.currentSortParameter.subscribe(param => {
       this.filterParam = param;

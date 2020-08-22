@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SharedService} from '../../../shared/services/shared-service/shared.service';
 import {SearchItem} from '../../models/search-item.model';
+import {YoutubeService} from '../../services/youtube-service/youtube.service';
 
 @Component({
              selector: 'app-search-item-detailed-info',
@@ -13,13 +13,13 @@ export class SearchItemDetailedInfoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private _sharedService: SharedService) {
+              private _youtubeService: YoutubeService) {
   }
 
   public ngOnInit(): void {
     this.route.params.subscribe(params => {
       const videoId: string = params.id;
-      this.video = this._sharedService.getVideoData(videoId);
+      this.video = this._youtubeService.getVideoData(videoId);
     });
   }
 

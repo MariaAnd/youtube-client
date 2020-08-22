@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {SharedService} from '../../../shared/services/shared-service/shared.service';
+import {SharedService} from '../../services/shared-service/shared.service';
 
 @Component({
              selector: 'app-header',
@@ -16,8 +16,8 @@ export class HeaderComponent implements OnInit {
     this.isSortBarVisible = !this.isSortBarVisible;
   }
 
-  public onSearchSubmit(): void {
-    this._sharedService.getResponse();
+  public onSearchSubmit(searchTerm: string): void {
+    this._sharedService.setSearchTerm(searchTerm);
   }
 
   public onSortSubmit(sortParam: string): void {

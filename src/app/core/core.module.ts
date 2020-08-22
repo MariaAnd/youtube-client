@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {HeaderComponent} from './components/header/header.component';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import {SortBarComponent} from './components/sort-bar/sort-bar.component';
@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {Error404Component} from './components/error404/error404.component';
+import {SharedService} from './services/shared-service/shared.service';
 
 @NgModule({
             declarations: [
@@ -30,4 +31,10 @@ import {Error404Component} from './components/error404/error404.component';
             ]
           })
 export class CoreModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [SharedService]
+    };
+  }
 }
