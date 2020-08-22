@@ -7,13 +7,13 @@ import {Router} from '@angular/router';
              styleUrls: ['./login-form.component.scss']
            })
 export class LoginFormComponent implements OnInit {
-  public messageAlert = 'Invalid credentials';
-  public  authFailed = false;
-  constructor(private router: Router) {
-  }
-
+  public messageAlert: string = 'Invalid credentials';
+  public authFailed: boolean = false;
   public username: string;
   public password: string;
+
+  constructor(private router: Router) {
+  }
 
   public ngOnInit(): void {
   }

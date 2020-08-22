@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-error404',
-  templateUrl: './error404.component.html',
-  styleUrls: ['./error404.component.scss']
-})
+             selector: 'app-error404',
+             templateUrl: './error404.component.html',
+             styleUrls: ['./error404.component.scss']
+           })
 export class Error404Component implements OnInit {
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
@@ -15,7 +15,7 @@ export class Error404Component implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('/assets/404.svg'));
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }
