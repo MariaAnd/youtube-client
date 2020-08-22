@@ -15,12 +15,13 @@ export class LoginFormComponent implements OnInit {
   public username: string;
   public password: string;
 
-  public ngOnInit() : void {
+  public ngOnInit(): void {
   }
 
   public login(): void {
     if (this.username === 'admin' && this.password === 'admin') {
       localStorage.setItem('token', 'fake_token');
+      localStorage.setItem('name', this.username);
       this.router.navigate(['youtube']);
     } else {
       this.authFailed = true;

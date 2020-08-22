@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SearchItem} from '../../models/search-item.model';
+import {Router} from '@angular/router';
 
 @Component({
              selector: 'app-search-item',
@@ -9,10 +10,14 @@ import {SearchItem} from '../../models/search-item.model';
 export class SearchItemComponent implements OnInit {
   @Input() public searchItem: SearchItem;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   public ngOnInit(): void {
+  }
+
+  public goToDetailedPage(): void {
+    this.router.navigate(['youtube', this.searchItem.id]);
   }
 
 }

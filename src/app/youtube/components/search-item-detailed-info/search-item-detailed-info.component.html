@@ -1,1 +1,30 @@
-<p>search-item-detailed-info works!</p>
+<mat-card>
+  <img src="{{video.snippet.thumbnails.default.url}}" alt="Video thumbnail" class="card-image">
+  <mat-card-content [appHighlightPublicationDate]="video.snippet.publishedAt">
+    <mat-card-title>{{video.snippet.title}}</mat-card-title>
+    <div class="date">{{video.snippet.publishedAt | date:'fullDate'}}</div>
+    <div class="description-text">
+      <h3>Description</h3>
+      <p>{{video.snippet.description}}</p>
+    </div>
+    <div class="statistics-container">
+      <span class="statistics-wrapper">
+        <mat-icon>visibility</mat-icon>
+        <span>{{video.statistics.viewCount}}</span>
+      </span>
+      <span class="statistics-wrapper">
+        <mat-icon>thumb_up</mat-icon>
+        <span>{{video.statistics.likeCount}}</span>
+      </span>
+      <span class="statistics-wrapper">
+        <mat-icon>thumb_down</mat-icon>
+        <span>{{video.statistics.dislikeCount}}</span>
+      </span>
+      <span class="statistics-wrapper">
+        <mat-icon>comment</mat-icon>
+        <span>{{video.statistics.commentCount}}</span>
+      </span>
+    </div>
+  </mat-card-content>
+  <mat-icon class="back-button" (click)="goBack()">keyboard_arrow_left</mat-icon>
+</mat-card>

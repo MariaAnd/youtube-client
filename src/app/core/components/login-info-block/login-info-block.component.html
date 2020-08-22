@@ -1,4 +1,5 @@
-<div class="login-wrapper">
-  <span>Your name</span>
+<div *ngIf="isAuthenticated()" class="login-wrapper">
+  <span [innerText]="name"></span>
   <mat-icon>person</mat-icon>
+  <button mat-flat-button (click)="logout()" color="primary">Logout</button>
 </div>

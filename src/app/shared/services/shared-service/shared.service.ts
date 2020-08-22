@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SearchResponse} from '../../../youtube/models/search-response.model';
 import data from './data.js';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {SearchItem} from '../../../youtube/models/search-item.model';
 
 @Injectable({
               providedIn: 'root'
@@ -19,10 +20,13 @@ export class SharedService {
 
   public getResponse(): void {
     this.response.next(data);
-    console.log(this.currentResponse);
   }
 
   public applySort(parameter: string): void {
     this.sortParameter.next(parameter);
+  }
+
+  public getVideoData(id: string): SearchItem {
+    return data.items.find(item => item.id === id);
   }
 }
