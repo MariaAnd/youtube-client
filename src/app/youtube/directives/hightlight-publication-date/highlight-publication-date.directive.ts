@@ -1,6 +1,5 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-
-import {SearchItem} from '../../models/search-item.model';
+import {Colors} from './enum';
 
 @Directive({
              selector: '[appHighlightPublicationDate]'
@@ -14,10 +13,10 @@ export class HighlightPublicationDateDirective implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.getColorByDate(this.date);
+    this.element.nativeElement.style.borderBottomColor = this.getColorByDate(this.date);
   }
 
-  public getColorByDate(date: Date): void {
+  public getColorByDate(date: Date): string {
     const publishedDate: Date = new Date(date);
 
     function getOneMonthBeforeNow(): Date {
@@ -37,17 +36,13 @@ export class HighlightPublicationDateDirective implements OnInit {
 
     switch (true) {
       case publishedDate > getOneWeekBeforeNow():
-        this.element.nativeElement.style.borderBottom = '5px solid blue';
-        break;
+        return Colors.blue;
       case publishedDate > getOneMonthBeforeNow():
-        this.element.nativeElement.style.borderBottom = '5px solid green';
-        break;
+        return Colors.green;
       case publishedDate > getSixMonthsBeforeNow():
-        this.element.nativeElement.style.borderBottom = '5px solid red';
-        break;
+        return Colors.red;
       default:
-        this.element.nativeElement.style.borderBottom = '5px solid yellow';
-        break;
+        return Colors.yellow;
     }
 
   }
