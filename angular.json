@@ -108,7 +108,8 @@
               "**/*.spec.ts",
               "**/environments/**",
               "src/test.ts",
-              "src/polyfills.ts"
+              "src/polyfills.ts",
+              "**/const.*"
             ]
           }
         },

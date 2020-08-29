@@ -1,5 +1,5 @@
 <mat-form-field class="search-form">
-  <input matInput placeholder="What do you want to find out?" type="text" >
+  <input matInput #searchInput placeholder="What do you want to find out?" type="text" autocomplete="off">
 </mat-form-field>
-<button button="submit" mat-flat-button (click)="getSearchResults()">Search</button>
+<button button="submit" mat-flat-button>Search</button>
 
