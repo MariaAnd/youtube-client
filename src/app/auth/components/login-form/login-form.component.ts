@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
              selector: 'app-login-form',
@@ -12,7 +13,7 @@ export class LoginFormComponent implements OnInit {
   public username: string;
   public password: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   public ngOnInit(): void {
@@ -20,8 +21,8 @@ export class LoginFormComponent implements OnInit {
 
   public login(): void {
     if (this.username === 'admin' && this.password === 'admin') {
-      localStorage.setItem('token', 'fake_token');
-      localStorage.setItem('name', this.username);
+      this.authService.changeAuthStatus(true);
+      this.authService.setUsername('admin');
       this.router.navigate(['youtube']);
     } else {
       this.authFailed = true;
