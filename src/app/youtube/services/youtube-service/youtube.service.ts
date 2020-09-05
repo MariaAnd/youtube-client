@@ -4,6 +4,7 @@ import {SearchItem} from '../../models/search-item.model';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
+import {SearchIdResponse} from '../../models/search-id-response.model';
 
 @Injectable({
               providedIn: 'root'
@@ -20,8 +21,8 @@ export class YoutubeService {
       .set('part', 'snippet')
       .set('maxResults', '15')
       .set('q', searchTerm);
-    return this.http.get<any>('/search', {params: params})
-      .pipe(mergeMap((response: any) => {
+    return this.http.get<SearchIdResponse>('/search', {params: params})
+      .pipe(mergeMap((response: SearchIdResponse) => {
         const ids: string = response.items.map(item => item.id.videoId).join(',');
         const paramsVideo: HttpParams = new HttpParams()
           .set('id', ids)
