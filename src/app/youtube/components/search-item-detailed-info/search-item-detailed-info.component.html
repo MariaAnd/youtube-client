@@ -1,4 +1,4 @@
-<mat-card *ngIf="video">
+<mat-card *ngIf="video | async as video">
   <img src="{{video.snippet.thumbnails.default.url}}" alt="Video thumbnail" class="card-image">
   <mat-card-content [appHighlightPublicationDate]="video.snippet.publishedAt">
     <mat-card-title>{{video.snippet.title}}</mat-card-title>

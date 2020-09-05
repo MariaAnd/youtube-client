@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SearchResponse} from '../../models/search-response.model';
 import {SharedService} from '../../../core/services/shared-service/shared.service';
 import {YoutubeService} from '../../services/youtube-service/youtube.service';
+import {Observable} from 'rxjs';
 
 @Component({
              selector: 'app-search-results',
@@ -9,7 +10,7 @@ import {YoutubeService} from '../../services/youtube-service/youtube.service';
              styleUrls: ['./search-results.component.scss']
            })
 export class SearchResultsComponent implements OnInit {
-  public searchResults?: SearchResponse;
+  public searchResults?: Observable<SearchResponse>;
   public filterParam?: string;
 
   constructor(private _sharedService: SharedService,

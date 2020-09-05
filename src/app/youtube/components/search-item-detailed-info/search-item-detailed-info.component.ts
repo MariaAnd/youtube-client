@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SearchItem} from '../../models/search-item.model';
 import {YoutubeService} from '../../services/youtube-service/youtube.service';
+import {Observable} from 'rxjs';
 
 @Component({
              selector: 'app-search-item-detailed-info',
@@ -9,7 +10,7 @@ import {YoutubeService} from '../../services/youtube-service/youtube.service';
              styleUrls: ['./search-item-detailed-info.component.scss']
            })
 export class SearchItemDetailedInfoComponent implements OnInit {
-  public video: SearchItem;
+  public video: Observable<SearchItem>;
 
   constructor(private route: ActivatedRoute,
               private router: Router,

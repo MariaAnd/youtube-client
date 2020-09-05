@@ -25,7 +25,9 @@ import {YoutubeService} from './services/youtube-service/youtube.service';
               DetailedInformationPageComponent,
               SearchItemDetailedInfoComponent
             ],
-            providers: [YoutubeService],
+            providers: [
+              YoutubeService
+            ],
             imports: [
               CommonModule,
               SharedModule,
