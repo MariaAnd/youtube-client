@@ -14,6 +14,9 @@ import {SearchItemDetailedInfoComponent}
   from './components/search-item-detailed-info/search-item-detailed-info.component';
 import {YoutubeRoutingModule} from './youtube-routing.module';
 import {YoutubeService} from './services/youtube-service/youtube.service';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
             declarations: [
@@ -23,7 +26,9 @@ import {YoutubeService} from './services/youtube-service/youtube.service';
               SortByParamPipe,
               MainPageComponent,
               DetailedInformationPageComponent,
-              SearchItemDetailedInfoComponent
+              SearchItemDetailedInfoComponent,
+              AdminComponent,
+              AdminPageComponent
             ],
             providers: [
               YoutubeService
@@ -32,7 +37,8 @@ import {YoutubeService} from './services/youtube-service/youtube.service';
               CommonModule,
               SharedModule,
               FlexLayoutModule,
-              YoutubeRoutingModule
+              YoutubeRoutingModule,
+              FormsModule,
             ]
           })
 export class YoutubeModule {

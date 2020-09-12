@@ -5,6 +5,10 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 import {SearchIdResponse} from '../../models/search-id-response.model';
+import {StoreI} from '../../../redux/state.model';
+
+class Store<T> {
+}
 
 @Injectable({
               providedIn: 'root'
@@ -12,7 +16,7 @@ import {SearchIdResponse} from '../../models/search-id-response.model';
 export class YoutubeService {
   private searchResponse!: Observable<SearchResponse>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private store: Store<StoreI>) {
   }
 
   public getSearchResults(searchTerm: string): Observable<SearchResponse> {

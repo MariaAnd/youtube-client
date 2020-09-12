@@ -1,14 +1,19 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {SearchResultsComponent} from './components/search-results/search-results.component';
 import {DetailedInformationPageComponent}
   from './pages/detailed-information-page/detailed-information-page.component';
 import {MainPageComponent} from './pages/main-page/main-page.component';
+import {AdminPageComponent} from './pages/admin-page/admin-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainPageComponent
+    component: MainPageComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'admin',
+    component: AdminPageComponent
   },
   {
     path: ':id',
