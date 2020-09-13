@@ -10,6 +10,10 @@ import {
 import {fromEvent, Observable, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, startWith, tap} from 'rxjs/operators';
 import {MIN_SYMBOLS, DEBOUNCE_TIME} from './const.component';
+import {YoutubeService} from '../../../youtube/services/youtube-service/youtube.service';
+import {State} from '../../../redux/state.model';
+import {Store} from '@ngrx/store';
+import {VIDEOS_RECEIVED} from '../../../redux/actions/videos.action';
 
 @Component({
              selector: 'app-search-bar',
@@ -22,7 +26,7 @@ export class SearchBarComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('searchInput', {static: false}) public input: ElementRef;
 
-  constructor() {
+  constructor(private _youtubeService: YoutubeService, private store: Store<State>) {
   }
 
   public ngAfterViewInit(): void {
@@ -30,14 +34,18 @@ export class SearchBarComponent implements AfterViewInit, OnDestroy {
       .pipe(
         map(event => (<HTMLInputElement>event.target).value),
         filter(term => term.length > MIN_SYMBOLS),
-        startWith(''),
         debounceTime(DEBOUNCE_TIME),
         distinctUntilChanged()
       );
     this.subscription = searchTerm$
       .subscribe(
         searchTerm => {
-          this.searchSubmitted.emit(searchTerm);
+          this._youtubeService.getSearchResults(searchTerm).subscribe(result => {
+            this.store.dispatch({
+                                  type: VIDEOS_RECEIVED,
+                                  payload: result
+                                });
+          });
         }
       );
   }

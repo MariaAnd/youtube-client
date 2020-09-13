@@ -1,10 +1,10 @@
 import {ADD_CARD, AddCard} from '../actions/cards.action';
+import {SearchItem} from '../../youtube/models/search-item.model';
 
-export function cardsReducer(state = [], action: AddCard) {
+export function cardsReducer(state: Array<SearchItem> = [], action: AddCard): Array<SearchItem> {
   switch (action.type) {
     case ADD_CARD: {
-      const card = action.payload;
-      return state.push(card);
+      return [...state, action.payload];
     }
 
     default:

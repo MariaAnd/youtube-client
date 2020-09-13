@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SearchItem} from '../../models/search-item.model';
-import {YoutubeService} from '../../services/youtube-service/youtube.service';
 import {Observable} from 'rxjs';
+import {getVideoById} from '../../../redux/selectors/videos.selector';
+import {Store} from '@ngrx/store';
+import {State} from '../../../redux/state.model';
 
 @Component({
              selector: 'app-search-item-detailed-info',
@@ -14,13 +16,13 @@ export class SearchItemDetailedInfoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private _youtubeService: YoutubeService) {
+              private store: Store<State>) {
   }
 
   public ngOnInit(): void {
     this.route.params.subscribe(params => {
       const videoId: string = params.id;
-      this.video = this._youtubeService.getVideoData(videoId);
+      this.video = this.store.select(getVideoById(videoId));
     });
   }
 

@@ -1,4 +1,4 @@
-import {Action} from 'rxjs/internal/scheduler/Action';
+import {Action} from '@ngrx/store';
 import {SearchResponse} from '../../youtube/models/search-response.model';
 
 export const VIDEOS_RECEIVED: string = 'VIDEOS_RECEIVED';

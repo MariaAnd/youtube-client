@@ -2,6 +2,7 @@
   width: 500px;
   margin: 40px auto;
   background-color: #E5E5E5;
+  position: relative;
 
   mat-form-field{
     width:400px;
@@ -20,5 +21,17 @@
   .mat-card-actions{
     margin:0;
     text-align: right;
+  }
+
+  .back-button {
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    background-color: #2F80ED;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: -30px;
+    cursor: pointer;
   }
 }

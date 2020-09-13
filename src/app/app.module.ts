@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {StoreModule} from '@ngrx/store';
 import {cardsReducer} from './redux/reducers/cards.reducer';
+import {videosReducer} from './redux/reducers/videos.reducer';
 
 @NgModule({
             declarations: [

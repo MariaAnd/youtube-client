@@ -1,7 +1,7 @@
 <mat-card [appHighlightPublicationDate]="searchItem.snippet.publishedAt">
   <img src="{{searchItem.snippet.thumbnails.default.url}}" alt="Video thumbnail">
   <mat-card-content>
-    <div class="statistics-container">
+    <div class="statistics-container" *ngIf="searchItem.statistics">
       <span class="statistics-wrapper">
         <mat-icon>visibility</mat-icon>
         <span>{{searchItem.statistics.viewCount}}</span>

@@ -10,6 +10,7 @@ import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {Error404Component} from './components/error404/error404.component';
 import {SharedService} from './services/shared-service/shared.service';
+import {YoutubeService} from '../youtube/services/youtube-service/youtube.service';
 
 @NgModule({
             declarations: [
@@ -23,6 +24,9 @@ import {SharedService} from './services/shared-service/shared.service';
             exports: [
               HeaderComponent,
               Error404Component
+            ],
+            providers: [
+              YoutubeService
             ],
             imports: [
               CommonModule,

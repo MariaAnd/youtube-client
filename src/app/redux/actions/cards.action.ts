@@ -1,4 +1,4 @@
-import {Action} from 'rxjs/internal/scheduler/Action';
+import {Action} from '@ngrx/store';
 import {SearchItem} from '../../youtube/models/search-item.model';
 
 export const ADD_CARD: string = 'ADD_CARD';

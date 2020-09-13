@@ -16,10 +16,6 @@ export class HeaderComponent implements OnInit {
     this.isSortBarVisible = !this.isSortBarVisible;
   }
 
-  public onSearchSubmit(searchTerm: string): void {
-    this._sharedService.setSearchTerm(searchTerm);
-  }
-
   public onSortSubmit(sortParam: string): void {
     this._sharedService.applySort(sortParam);
   }
