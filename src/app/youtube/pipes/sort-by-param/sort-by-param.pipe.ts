@@ -10,7 +10,7 @@ export class SortByParamPipe implements PipeTransform {
       return array;
     }
     if (array && (filterType === '+date' || filterType === '-date')) {
-      return array.sort((a: SearchItem, b: SearchItem) => {
+      return array.slice().sort((a: SearchItem, b: SearchItem) => {
         let date: Date, dateToCompare: Date;
         if (filterType === '+date') {
           date = new Date(a.snippet.publishedAt);
@@ -35,9 +35,10 @@ export class SortByParamPipe implements PipeTransform {
         ? (a, b) => parseInt(a.statistics.viewCount, 10) - parseInt(b.statistics.viewCount, 10)
         : (a, b) => parseInt(b.statistics.viewCount, 10) - parseInt(a.statistics.viewCount, 10);
 
-      return array.sort((a, b) => comparisonFunction(a, b));
+      return array.slice().sort((a, b) => comparisonFunction(a, b));
     } else {
-      return array.filter(item => item.snippet.title.toLowerCase().includes(filterType.toLowerCase()));
+      return array.slice()
+        .filter(item => item.snippet.title.toLowerCase().includes(filterType.toLowerCase()));
     }
   }
 }
