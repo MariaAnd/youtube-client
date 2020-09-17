@@ -1,0 +1,21 @@
+span, label{
+  font-size:12px;
+  margin-right: 16px;
+}
+
+.label-grey{
+  color: #929292;
+}
+
+.sort-option{
+  color: #2F80ED;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+input{
+  border:none;
+  outline:none;
+}

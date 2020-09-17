@@ -1,28 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { SearchItemComponent } from './components/search-item/search-item.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { SortBarComponent } from './components/sort-bar/sort-bar.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import {CoreModule} from './core/core.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
+import {StoreModule} from '@ngrx/store';
+import {cardsReducer} from './redux/reducers/cards.reducer';
+import {videosReducer} from './redux/reducers/videos.reducer';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchResultsComponent,
-    SearchItemComponent,
-    SearchBarComponent,
-    SortBarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+            declarations: [
+              AppComponent
+            ],
+            imports: [
+              BrowserModule,
+              BrowserAnimationsModule,
+              AppRoutingModule,
+              HttpClientModule,
+              CoreModule.forRoot(),
+              SharedModule,
+              StoreModule.forRoot({
+                cards: cardsReducer,
+                videos: videosReducer
+                                  })
+            ],
+            bootstrap: [AppComponent]
+          })
+export class AppModule {
+}

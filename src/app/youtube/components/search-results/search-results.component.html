@@ -1,0 +1,17 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="flex-start"
+     *ngIf="searchResults | async as searchResults">
+  <div class="flex-item" fxFlex="25%" fxFlex.sm="50%" fxFlex.xs="100%"
+       *ngFor="let searchItem of (searchResults.items | sortByParam: filterParam)">
+    <app-search-item [searchItem]="searchItem"></app-search-item>
+  </div>
+</div>
+
+<div *ngIf="customCards | async as customCards">
+  <h2 *ngIf="customCards.length">Custom cards</h2>
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="flex-start" *ngIf="customCards.length">
+    <div class="flex-item" fxFlex="25%" fxFlex.sm="50%" fxFlex.xs="100%"
+         *ngFor="let customCard of (customCards | sortByParam: filterParam)">
+      <app-search-item [searchItem]="customCard"></app-search-item>
+    </div>
+  </div>
+</div>

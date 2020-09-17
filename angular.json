@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -87,6 +88,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -101,7 +103,13 @@
               "e2e/tsconfig.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/e2e/**",
+              "**/*.spec.ts",
+              "**/environments/**",
+              "src/test.ts",
+              "src/polyfills.ts",
+              "**/const.*"
             ]
           }
         },
@@ -118,6 +126,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "youtube-client"
 }

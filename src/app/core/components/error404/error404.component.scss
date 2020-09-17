@@ -1,0 +1,18 @@
+.error-container {
+  width: 400px;
+  display:flex;
+  align-items: center;
+  margin: 100px auto 0;
+  color: #828282;
+
+  .mat-icon {
+    height: 80px;
+    width: 80px;
+    margin-right: 24px;
+  }
+
+  h2{
+    margin:0;
+  }
+}
+
